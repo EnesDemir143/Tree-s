@@ -26,11 +26,35 @@ node5.left = node10
 
 def preorder_dfs(node,DFS):
     if node:
-        DFS.append(node.val)  # Kök düğümü yazdır
-        preorder_dfs(node.left,DFS)   # Sol alt ağacı ziyaret et
-        preorder_dfs(node.right,DFS)  # Sağ alt ağacı ziyaret et
+        DFS.append(node.val)  
+        preorder_dfs(node.left,DFS)  
+        preorder_dfs(node.right,DFS)
 
-# Preorder DFS'yi başlat
+
 DFS = []
 preorder_dfs(node1,DFS)
+print(DFS)
+
+
+def inorder_traversal(root,DFS):
+    if root:
+        inorder_traversal(root.left,DFS)
+        DFS.append(root.val)
+        inorder_traversal(root.right,DFS)
+
+
+DFS=[]
+inorder_traversal(node1,DFS)
+print(DFS)
+
+
+def postorder_traversal(root,DFS):
+    if root:
+        postorder_traversal(root.left,DFS)
+        postorder_traversal(root.right,DFS)
+        DFS.append(root.val)
+
+
+DFS=[]
+postorder_traversal(node1,DFS)
 print(DFS)
