@@ -1,3 +1,4 @@
+from collections import deque
 from Node import Node
 
 node1 = Node(1)
@@ -58,3 +59,21 @@ def postorder_traversal(root,DFS):
 DFS=[]
 postorder_traversal(node1,DFS)
 print(DFS)
+
+
+def bfs(root):
+    if not root:
+        return
+        
+    queue = deque([root])
+    
+    while queue:
+        node = queue.popleft()
+
+        print(node.value, end=" ")
+
+        if node.left:
+            queue.append(node.left)
+
+        if node.right:
+            queue.append(node.right)
